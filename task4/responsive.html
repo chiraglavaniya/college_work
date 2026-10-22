@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #d35400;
+      color: white;
+    }
+
+    #navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background-color: #7a2e00;
+      line-height: 60px;
+    }
+
+    #navbar a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 18px;
+    }
+
+    #navbar a:hover {
+      color: yellow;
+    }
+
+    #navbar input {
+      padding: 6px;
+      margin-left: 30px;
+      width: 180px;
+    }
+
+    #navbar button {
+      padding: 6px 10px;
+      cursor: pointer;
+    }
+
+    #sidebar {
+      position: fixed;
+      top: 60px;
+      left: 0;
+      width: 180px;
+      height: 100%;
+      background-color: #4a1c00;
+    }
+
+    #sidebar a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 15px 20px;
+    }
+
+    #sidebar a:hover {
+      background-color: #d35400;
+    }
+
+    #workspace {
+      margin-top: 60px;
+      margin-left: 180px;
+      height: 500px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #text {
+      padding: 40px;
+    }
+
+    #text h1 {
+      font-size: 40px;
+    }
+
+    #text p {
+      font-size: 20px;
+    }
+
+    .rocket {
+      position: absolute;
+      font-size: 50px;
+      animation-name: updown;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-timing-function: ease-in-out;
+    }
+
+    #rocket1 {
+      top: 50px;
+      left: 55%;
+      animation-duration: 3s;
+    }
+
+    #rocket2 {
+      top: 50px;
+      left: 70%;
+      animation-duration: 4s;
+    }
+
+    #rocket3 {
+      top: 50px;
+      left: 85%;
+      animation-duration: 2s;
+    }
+
+    @keyframes updown {
+      from {
+        transform: translateY(0px);
+      }
+      to {
+        transform: translateY(350px);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="navbar">
+    <a href="#">Home</a>
+    <a href="#">Course</a>
+    <input type="text" placeholder="Search here...">
+    <button>Search</button>
+  </div>
+
+  <div id="sidebar">
+    <a href="#">Dashboard</a>
+    <a href="#">My Courses</a>
+    <a href="#">Practice</a>
+    <a href="#">Settings</a>
+  </div>
+
+  <div id="workspace">
+    <div id="text">
+      <h1>Hello!</h1>
+      <p>Welcome to my website.</p>
+      <p>Hope you like it here.</p>
+    </div>
+
+    <div class="rocket" id="rocket1">🚀</div>
+    <div class="rocket" id="rocket2">🚀</div>
+    <div class="rocket" id="rocket3">🚀</div>
+  </div>
+
+</body>
+</html>
