@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JS Practice</title>
+</head>
+<body>
+<pre id="out"></pre>
+<script>
+const log = (...a) => out.textContent += a.join(" ") + "\n";
+
+function add(a, b) { return a + b; }
+const mul = (a, b) => a * b;
+log("add:", add(2, 3), "mul:", mul(2, 3));
+
+function counter() {
+  let c = 0;
+  return () => ++c;
+}
+const next = counter();
+next(); next();
+log("closure counter:", next());
+
+const multiplier = x => y => x * y;
+const double = multiplier(2);
+log("double 7:", double(7));
+
+(function () {
+  const secret = "hidden";
+  log("IIFE:", secret);
+})();
+
+const bank = (() => {
+  let balance = 100;
+  return {
+    deposit: n => (balance += n),
+    get: () => balance
+  };
+})();
+bank.deposit(50);
+log("bank:", bank.get());
+
+const students = [
+  { name: "Asha", marks: 82, dept: "Law" },
+  { name: "Ravi", marks: 45, dept: "CS" },
+  { name: "Meena", marks: 91, dept: "Law" },
+  { name: "Karan", marks: 67, dept: "CS" }
+];
+
+const names = students.map(s => s.name);
+log("map:", names.join(", "));
+
+const passed = students.filter(s => s.marks >= 50).map(s => s.name);
+log("filter:", passed.join(", "));
+
+const total = students.reduce((sum, s) => sum + s.marks, 0);
+log("reduce total:", total, "avg:", total / students.length);
+
+const byDept = students.reduce((acc, s) => {
+  (acc[s.dept] ||= []).push(s.name);
+  return acc;
+}, {});
+log("group:", JSON.stringify(byDept));
+
+const topper = students.reduce((a, b) => (a.marks > b.marks ? a : b));
+log("topper:", topper.name);
+
+students.forEach((s, i) => log(i + 1 + ".", s.name, s.marks));
+</script>
+</body>
+</html>
