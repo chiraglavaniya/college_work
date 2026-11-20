@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chessboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --page: #e9eef5;
+    --card: #ffffff;
+    --text: #1c2438;
+    color-scheme: light;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --page: #121722;
+      --card: #1b2232;
+      --text: #e8edf8;
+      color-scheme: dark;
+    }
+  }
+
+  html {
+    height: 100%;
+    scroll-padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  body {
+    min-height: 100%;
+    margin: 0;
+    padding: 24px 16px;
+    box-sizing: border-box;
+    background: var(--page);
+    color: var(--text);
+    font-family: "Sora", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+
+  .card {
+    max-width: 420px;
+    margin: 0 auto;
+    background: var(--card);
+    border-radius: 20px;
+    padding: 20px;
+  }
+
+  h1 {
+    margin: 0 0 14px;
+    font-size: 22px;
+  }
+
+  #board {
+    border: 3px solid #5c4130;
+  }
+</style>
+</head>
+
+<body>
+  <div class="card">
+    <h1>Chessboard</h1>
+    <div id="board"></div>
+  </div>
+
+  <script>
+    const board = document.getElementById("board");
+
+    function buildBoard() {
+      board.style.display = "grid";
+      board.style.gridTemplateColumns = "repeat(8, 1fr)";
+      board.style.width = "100%";
+      board.style.maxWidth = "360px";
+      board.style.margin = "0 auto";
+
+      for (let row = 0; row < 8; row++) {
+        for (let col = 0; col < 8; col++) {
+          const square = document.createElement("div");
+          square.style.aspectRatio = "1 / 1";
+
+          if ((row + col) % 2 === 0) {
+            square.style.backgroundColor = "#f0d9b5";
+          } else {
+            square.style.backgroundColor = "#b58863";
+          }
+
+          board.appendChild(square);
+        }
+      }
+    }
+
+    buildBoard();
+  </script>
+</body>
+</html>
